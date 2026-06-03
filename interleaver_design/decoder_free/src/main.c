@@ -17,10 +17,6 @@
  *   result.txt  -- valid interleavers in C-initialiser format
  *   temps.txt   -- progress log
  *
- * Reference:
- *   M. Bazzal et al., "Distance-centric joint interleaver and structural
- *   code design for concatenated convolutional codes,"
- *   IEEE Open Journal of the Communications Society, 2025.
  *
  * Author:  Mohammad Bazzal, IMT Atlantique, Lab-STICC, Brest, France
  * License: MIT

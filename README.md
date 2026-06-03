@@ -218,18 +218,7 @@ make clean   # run inside each tool directory
 
 ---
 
-## RSC encoder notes
 
-Two encoder configurations are used in the paper:
-
-| Name | Generator | Puncturing | Notes |
-|------|-----------|-----------|-------|
-| G1 | G(1, 15/13)₈ | none | Single-parity RSC |
-| G2 | G(1, 15/13, 17/13)₈ | data: [10100000], parity₁: [11101111], parity₂: [01011010] | Double-parity RSC with systematic puncturing |
-
-Set in `shared/config.h` via `G1_INIT`, `G2_INIT`, and the `PUNCT_*` defines.
-
----
 
 ## License
 

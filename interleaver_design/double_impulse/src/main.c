@@ -1,0 +1,82 @@
+/**
+ * @file main.c
+ * @brief DPCCC interleaver design - N-impulse decoder-based method.
+ *
+ * Designs CUTS independent ARP sub-interleavers by injecting N simultaneous
+ * high-LLR impulses into the turbo decoder and checking if the decoded word
+ * is a valid low-weight codeword. Set IMPULSE_N in design_config.h to 1, 2,
+ * or 3 for single, double, or triple impulse.
+ *
+ * Build: make    Run: ./dpccc_impulse
+ *
+ * Author:  Mohammad Bazzal, IMT Atlantique, Lab-STICC, Brest, France
+ * License: MIT
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+#include "../../../shared/config.h"
+#include "../../../shared/encoder.h"
+#include "../../../shared/interleaver.h"
+#include "../../../shared/utils.h"
+#include "../include/design_config.h"
+#include "../include/designer.h"
+
+int main(void)
+{
+    srand(time(NULL));
+
+    int small_fs = SIZE / CUTS;
+    Initialize_States(CIRCULAR_STATES[0], small_fs);
+    Initialize_States(CIRCULAR_STATES[1], SIZE);
+
+    int circular_states[MAX_SEGMENTS][32];
+    int Places[SIZE][MAX_SEGMENTS];
+    int number_of_repetition[MAX_SEGMENTS];
+    int i, j;
+
+    for (i = 0; i < SIZE; i++)
+        for (j = 0; j < MAX_SEGMENTS; j++)
+            Places[i][j] = -1;
+    for (i = 0; i < MAX_SEGMENTS; i++) number_of_repetition[i] = 0;
+
+    /* Special-coupling DPCCC structure */
+    number_of_repetition[0] = SIZE;
+    for (i = 0; i < CUTS; i++) number_of_repetition[i + 1] = SIZE / CUTS;
+
+    for (i = 0; i < SIZE; i++) Places[i][0] = i;
+    int beginning = SIZE;
+    for (i = 0; i < CUTS; i++)
+        for (j = 0; j < SIZE / CUTS; j++)
+            Places[i + j * CUTS][1] = beginning++;
+
+    for (i = 0; i < MAX_SEGMENTS; i++) {
+        if (number_of_repetition[i] == 0) break;
+        Initialize_States(circular_states[i], number_of_repetition[i]);
+    }
+
+    /* Code rate */
+    int tmp_d[]  = DATA_PUNCT_INIT;
+    int tmp_k[]  = PARITY_K_INIT;
+    int tmp_kq[] = PARITY_K_Q_INIT;
+    int d_ones = 0, k_ones = 0, kq_ones = 0;
+    for (i = 0; i < PUNCT_MASK; i++) {
+        d_ones += tmp_d[i]; k_ones += tmp_k[i]; kq_ones += tmp_kq[i];
+    }
+    double R = (double)SIZE / (d_ones*(SIZE/PUNCT_MASK) +
+                               k_ones*(SIZE/PUNCT_MASK) +
+                               kq_ones*(SIZE/(PUNCT_MASK*CUTS))*CUTS);
+    printf("Code rate R = %.4f  [N-impulse, N=%d]\n", R, IMPULSE_N);
+
+    FILE *f = fopen("result.txt", "w"); fclose(f);
+
+    int threshold = DESIGN_THRESHOLD;
+    for (int t = 0; t < 100; t++) {
+        Build_Multiple_Interleaver_Iteratively(Places, number_of_repetition,
+                                               circular_states, R, threshold);
+        if (!WITH_MULTIPLICITY) threshold++;
+    }
+    return 0;
+}

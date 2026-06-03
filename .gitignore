@@ -1,0 +1,20 @@
+# Compiled binaries
+dpccc_decoder_free
+dpccc_impulse
+dpccc_sim
+
+# Generated output files
+result.txt
+temps.txt
+repeates.txt
+min_dist.txt
+_dedup_tmp.txt
+temp.txt
+
+# Editor / OS artifacts
+*.swp
+*~
+.DS_Store
+
+# NFS lock files (from cluster runs)
+.nfs*

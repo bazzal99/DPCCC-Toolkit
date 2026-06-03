@@ -59,29 +59,6 @@ The three cases from the paper:
 
 ---
 
-## mHD Results
-
-### Estimated mHD vs LTE TC (from Table I of the paper)
-
-![mHD Table](docs/figures/mhd_table.svg)
-
-**Configuration:** Algorithm 1, code rate R = 1/3, G1 = G(1, 15/13)₈,
-G2 = G(1, 15/13, 17/13)₈ with systematic puncturing pattern [10100000]
-and parity patterns [11101111] / [01011010].
-
-| Config | K=128  | K=1024  | K=6144  |
-|--------|------------|-------------|-------------|
-| DPCCC L=2 | **28** / **32** | **46** / 48 | 50 / 48 |
-| DPCCC L=4 | 26 / 31 | **46** / **56** | 51 / 60 |
-| DPCCC L=8 | 24 / 30 | 45 / 54 | **57** / **72** |
-| DPCCC L=16 | 18 / 19 | 42 / 47 | 54 / 64 |
-| **LTE TC** | **16** | **26** | **27** |
-
-Best gains over LTE: **+75%** (K=128), **+70%** (K=1024), **+119%** (K=6144) using G1,
-and **+100%**, **+107%**, **+157%** using G2.
-
----
-
 ## Repository structure
 
 ```

@@ -69,7 +69,7 @@ The three cases from the paper:
 G2 = G(1, 15/13, 17/13)₈ with systematic puncturing pattern [10100000]
 and parity patterns [11101111] / [01011010].
 
-| Config | K=128 G1/G2 | K=1024 G1/G2 | K=6144 G1/G2 |
+| Config | K=128  | K=1024  | K=6144  |
 |--------|------------|-------------|-------------|
 | DPCCC L=2 | **28** / **32** | **46** / 48 | 50 / 48 |
 | DPCCC L=4 | 26 / 31 | **46** / **56** | 51 / 60 |

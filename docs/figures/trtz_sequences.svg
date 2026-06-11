@@ -1,0 +1,87 @@
+<svg viewBox="0 0 780 260" xmlns="http://www.w3.org/2000/svg" font-family="serif" font-size="13">
+  <rect width="780" height="260" fill="#fafafa" rx="8"/>
+  <text x="390" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a2e">Fig. 3 — Decomposition of TRTZ sequences (L=2, period p)</text>
+
+  <!-- ===== (a) IW-2 ===== -->
+  <text x="130" y="50" text-anchor="middle" font-size="13" font-weight="bold" fill="#1565c0">(a) IW-2  →  TRTZml-w1</text>
+
+  <!-- d1 line with two bits -->
+  <text x="32" y="90" font-size="12" font-style="italic" fill="#333">d₁</text>
+  <line x1="50" y1="87" x2="230" y2="87" stroke="#555" stroke-width="1.5"/>
+  <circle cx="80"  cy="87" r="5" fill="#e53935"/>
+  <circle cx="160" cy="87" r="5" fill="#e53935"/>
+  <!-- distance annotation -->
+  <line x1="80" y1="98" x2="160" y2="98" stroke="#e53935" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="120" y="112" text-anchor="middle" font-size="10" fill="#e53935">multiple of lcm(p,L)</text>
+
+  <!-- d'q1 line (sub-frame 1, gets one bit) -->
+  <text x="32" y="145" font-size="12" font-style="italic" fill="#333">d'₂</text>
+  <line x1="50" y1="142" x2="230" y2="142" stroke="#888" stroke-width="1.2"/>
+  <circle cx="80" cy="142" r="5" fill="#e53935"/>
+  <text x="80" y="162" text-anchor="middle" font-size="10" fill="#555">IW=1</text>
+
+  <!-- d'q2 line (sub-frame 2, gets one bit) -->
+  <text x="32" y="195" font-size="12" font-style="italic" fill="#333">d'₃</text>
+  <line x1="50" y1="192" x2="230" y2="192" stroke="#888" stroke-width="1.2"/>
+  <circle cx="160" cy="192" r="5" fill="#e53935"/>
+  <text x="160" y="212" text-anchor="middle" font-size="10" fill="#555">IW=1</text>
+
+  <text x="130" y="240" text-anchor="middle" font-size="11" fill="#666">Each sub-frame: IW=1, high OW</text>
+
+  <!-- ===== Divider ===== -->
+  <line x1="265" y1="40" x2="265" y2="245" stroke="#ddd" stroke-width="1.5"/>
+
+  <!-- ===== (b) IW-3 ===== -->
+  <text x="415" y="50" text-anchor="middle" font-size="13" font-weight="bold" fill="#1565c0">(b) IW-3  →  TRTZml-w1</text>
+
+  <text x="282" y="90" font-size="12" font-style="italic" fill="#333">d₁</text>
+  <line x1="300" y1="87" x2="530" y2="87" stroke="#555" stroke-width="1.5"/>
+  <circle cx="330" cy="87" r="5" fill="#e53935"/>
+  <circle cx="415" cy="87" r="5" fill="#e53935"/>
+  <circle cx="500" cy="87" r="5" fill="#e53935"/>
+  <line x1="330" y1="98" x2="500" y2="98" stroke="#e53935" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="415" y="112" text-anchor="middle" font-size="10" fill="#e53935">RTZ in d₁</text>
+
+  <text x="282" y="145" font-size="12" font-style="italic" fill="#333">d'₂</text>
+  <line x1="300" y1="142" x2="530" y2="142" stroke="#888" stroke-width="1.2"/>
+  <circle cx="330" cy="142" r="5" fill="#e53935"/>
+  <circle cx="500" cy="142" r="5" fill="#43a047"/>
+  <text x="330" y="162" text-anchor="middle" font-size="10" fill="#555">IW=1</text>
+
+  <text x="282" y="195" font-size="12" font-style="italic" fill="#333">d'₃</text>
+  <line x1="300" y1="192" x2="530" y2="192" stroke="#888" stroke-width="1.2"/>
+  <circle cx="415" cy="192" r="5" fill="#43a047"/>
+  <circle cx="500" cy="192" r="5" fill="#e53935"/>
+  <text x="415" y="212" text-anchor="middle" font-size="10" fill="#555">depends on Π</text>
+
+  <text x="415" y="240" text-anchor="middle" font-size="11" fill="#666">Mitigated by interleaver design</text>
+
+  <!-- ===== Divider ===== -->
+  <line x1="558" y1="40" x2="558" y2="245" stroke="#ddd" stroke-width="1.5"/>
+
+  <!-- ===== (c) IW-4 ===== -->
+  <text x="670" y="50" text-anchor="middle" font-size="13" font-weight="bold" fill="#c62828">(c) IW-4  →  TRTZml</text>
+  <text x="670" y="68" text-anchor="middle" font-size="11" fill="#c62828">Must be broken by Π</text>
+
+  <text x="575" y="90" font-size="12" font-style="italic" fill="#333">d₁</text>
+  <line x1="593" y1="87" x2="760" y2="87" stroke="#555" stroke-width="1.5"/>
+  <circle cx="615" cy="87" r="5" fill="#e53935"/>
+  <circle cx="660" cy="87" r="5" fill="#e53935"/>
+  <circle cx="705" cy="87" r="5" fill="#e53935"/>
+  <circle cx="750" cy="87" r="5" fill="#e53935"/>
+  <line x1="615" y1="98" x2="660" y2="98" stroke="#e53935" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="705" y1="98" x2="750" y2="98" stroke="#e53935" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="682" y="115" text-anchor="middle" font-size="9" fill="#e53935">ℓp apart</text>
+
+  <text x="575" y="145" font-size="12" font-style="italic" fill="#333">d'₂</text>
+  <line x1="593" y1="142" x2="760" y2="142" stroke="#888" stroke-width="1.2"/>
+  <circle cx="615" cy="142" r="5" fill="#e53935"/>
+  <circle cx="705" cy="142" r="5" fill="#e53935"/>
+
+  <text x="575" y="195" font-size="12" font-style="italic" fill="#333">d'₃</text>
+  <line x1="593" y1="192" x2="760" y2="192" stroke="#888" stroke-width="1.2"/>
+  <circle cx="660" cy="192" r="5" fill="#e53935"/>
+  <circle cx="750" cy="192" r="5" fill="#e53935"/>
+
+  <text x="670" y="240" text-anchor="middle" font-size="11" fill="#666">Both sub-frames: IW=2 RTZ</text>
+</svg>

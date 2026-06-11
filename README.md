@@ -92,14 +92,10 @@ DPCCC-Toolkit/
 │       └── Makefile
 │
 ├── montecarlo/                     ← Tool 3: BER/FER Monte Carlo simulator
-│   ├── include/sim_config.h        ← RNG seed, target frame errors
-│   ├── src/main.c
-│   └── Makefile
-│
-└── docs/figures/                   ← Paper figures (SVG)
-    ├── dpccc_structure.svg
-    ├── trtz_sequences.svg
-    └── mhd_table.svg
+    ├── include/sim_config.h        ← RNG seed, target frame errors
+    ├── src/main.c
+    └── Makefile
+
 ```
 
 ---

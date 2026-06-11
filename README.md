@@ -1,7 +1,7 @@
 # DPCCC-Toolkit
 
 A complete open-source toolkit for the design and simulation of
-**Decomposed Parallel Concatenated Convolutional Codes (DPCCC)** —
+**Decomposed Parallel Concatenated Convolutional Codes (DPCCC)**,
 a novel turbo code architecture that significantly increases the minimum
 Hamming distance (mHD) and reduces the error floor compared to
 conventional turbo codes such as LTE.

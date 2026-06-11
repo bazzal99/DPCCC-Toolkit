@@ -39,7 +39,7 @@ matching conventional turbo codes while achieving significantly higher mHD.
 
 ### DPCCC Structure
 
-![DPCCC Structure](docs/figures/DPCCC_SCHEME.pdf)
+![DPCCC Structure](docs/figures/dpccc_structure.svg)
 
 ### Key idea: suppressing low-IW TRTZ sequences
 

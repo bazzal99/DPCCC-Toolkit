@@ -59,6 +59,29 @@ The three cases from the paper:
 
 ---
 
+## mHD Results
+
+### Estimated mHD vs LTE TC (from Table I of the paper)
+
+![mHD Table](docs/figures/mhd_table.svg)
+
+**Configuration:** Algorithm 1, code rate R = 1/3, G1 = G(1, 15/13)₈,
+G2 = G(1, 15/13, 17/13)₈ with systematic puncturing pattern [10100000]
+and parity patterns [11101111] / [01011010].
+
+| Config | K=128 G1/G2 | K=1024 G1/G2 | K=6144 G1/G2 |
+|--------|------------|-------------|-------------|
+| DPCCC L=2 | **28** / **32** | **46** / 48 | 50 / 48 |
+| DPCCC L=4 | 26 / 31 | **46** / **56** | 51 / 60 |
+| DPCCC L=8 | 24 / 30 | 45 / 54 | **57** / **72** |
+| DPCCC L=16 | 18 / 19 | 42 / 47 | 54 / 64 |
+| **LTE TC** | **16** | **26** | **27** |
+
+Best gains over LTE: **+75%** (K=128), **+70%** (K=1024), **+119%** (K=6144) using G1,
+and **+100%**, **+107%**, **+157%** using G2.
+
+---
+
 ## Repository structure
 
 ```
@@ -92,10 +115,14 @@ DPCCC-Toolkit/
 │       └── Makefile
 │
 ├── montecarlo/                     ← Tool 3: BER/FER Monte Carlo simulator
-    ├── include/sim_config.h        ← RNG seed, target frame errors
-    ├── src/main.c
-    └── Makefile
-
+│   ├── include/sim_config.h        ← RNG seed, target frame errors
+│   ├── src/main.c
+│   └── Makefile
+│
+└── docs/figures/                   ← Paper figures (SVG)
+    ├── dpccc_structure.svg
+    ├── trtz_sequences.svg
+    └── mhd_table.svg
 ```
 
 ---
@@ -214,7 +241,18 @@ make clean   # run inside each tool directory
 
 ---
 
+## RSC encoder notes
 
+Two encoder configurations are used in the paper:
+
+| Name | Generator | Puncturing | Notes |
+|------|-----------|-----------|-------|
+| G1 | G(1, 15/13)₈ | none | Single-parity RSC |
+| G2 | G(1, 15/13, 17/13)₈ | data: [10100000], parity₁: [11101111], parity₂: [01011010] | Double-parity RSC with systematic puncturing |
+
+Set in `shared/config.h` via `G1_INIT`, `G2_INIT`, and the `PUNCT_*` defines.
+
+---
 
 ## License
 
